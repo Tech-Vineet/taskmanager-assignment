@@ -31,7 +31,7 @@ export const taskRouter = router({
         title: z.string().min(1),
         description: z.string().min(1),
         status: z.enum(["todo", "in-progress", "done"]).optional(),
-        deadline: z.date().nullable().optional(),
+        deadline: z.coerce.date().nullable().optional(),
         progress: z.number().min(0).max(100).optional(),
       })
     )
@@ -68,7 +68,7 @@ export const taskRouter = router({
         title: z.string().min(1).optional(),
         description: z.string().min(1).optional(),
         status: z.enum(["todo", "in-progress", "done"]).optional(),
-        deadline: z.date().nullable().optional(),
+        deadline: z.coerce.date().nullable().optional(),
         progress: z.number().min(0).max(100).optional(),
       })
     )
