@@ -21,7 +21,7 @@ export async function createContext(opts: { req: NextRequest }): Promise<Context
   
   let user = null;
   if (userId) {
-    const userDoc = await User.findById(userId).lean();
+    const userDoc = await User.findById(userId).lean<any>();
     if (userDoc) {
       user = {
         id: userDoc._id.toString(),
